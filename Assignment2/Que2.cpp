@@ -1,19 +1,26 @@
 #include <iostream>
 using namespace std;
-int binarySearch(int arr[],int n,int e) {
-    int low=0;
-    int high=n-1;
-    while (low<=high) {
-        int mid=(low+high)/2;
-        if (arr[mid]==e) return mid;
-        else if (arr[mid]>e) high=mid-1;
-        else low=mid+1;
+void BubbleSort(int arr[],int n) {
+    for (int i=0;i<n-1;i++) {
+        bool check=true;
+        for (int j=0;j<n-1-i;j++) {
+            if (arr[j+1]<arr[j]) {
+                int temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+                check=false;
+            }
+        }
+        if (check) return;
     }
-    return -1;
+    return;
 }
 int main() {
-    int arr[10]={1,2,3,4,5,6,7,8,9,10};
+    int arr[5]={5,4,3,2,1};
     int n=sizeof(arr)/sizeof(arr[0]);
-    cout<<binarySearch(arr,n,5);
+    BubbleSort(arr,n);
+    for (int i=0;i<n;i++) {
+        cout<<arr[i]<<" ";
+    }
     return 0;
 }
