@@ -10,7 +10,7 @@ string concat(string s1,string s2) {
     return ans;
 }
 int main() {
-    string s1="Mehardeep";
+    string s1="Sahibnoor";
     string s2="Singh";
     cout<<concat(s1,s2);
     return 0;
