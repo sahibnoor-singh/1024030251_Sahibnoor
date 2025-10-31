@@ -2,20 +2,31 @@
 #include <string>
 #include <stack>
 
-
 using namespace std;
-bool balancedParenthesis;
 
-void reverseString(string &str) {
-    int n = str.length();
-    for (int i = 0; i < n / 2; ++i) {
-        swap(str[i], str[n - i - 1]);
+string reverseString(string s) {
+    stack<char> st;
+
+    for (int i = 0; i < s.length(); i++) {
+        st.push(s[i]);
     }
+
+    for (int i = 0; i < s.length(); i++) {
+        s[i] = st.top();
+        st.pop();
+    }
+    
+    return s;
 }
 
 int main() {
-    string s="Sahibnoor Singh";
-    reverseString(s);
-    cout<<s;
+    string s = "DataStructure";
+    
+    cout << "Original: " << s << endl;
+    
+    s = reverseString(s);
+    
+    cout << "Reversed: " << s << endl;
+    
     return 0;
 }
